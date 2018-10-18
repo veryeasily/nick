@@ -180,7 +180,8 @@
               .ease(d3.easeLinear);
 
     var randHeight = function() {
-      return Math.floor(Math.random()*60) + 1;
+      return Math.floor(Math.random()*58) + 2;
+
     };
 
     //This is the accessor function we talked about above
@@ -206,6 +207,8 @@
         d.y = randHeight();
         return d;
       });
+
+      console.log(newData.map(i => i.y));
 
       lineGraph.transition().duration(5000)
                             .attr('d', lineFunction(newData));
