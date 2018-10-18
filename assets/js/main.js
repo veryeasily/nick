@@ -236,6 +236,8 @@
       $avatar.append($('<img src="'+url+'" class="avatar-hide"></img>'));
     });
 
+    var $mainAvatar = $('.main-avatar');
+
     var randomAvatar = function() {
       var rand = Math.floor(Math.random() * pictures.length - 1);
       var current = $('.image.avatar img:not(.avatar-hide)')[0];
@@ -243,9 +245,14 @@
       $avatar.children().filter(function() {
         return this != current;
       }).eq(rand).removeClass('avatar-hide');
+
+      setTimeout(function() {
+        $avatar.children().addClass('avatar-hide');
+        $mainAvatar.removeClass('avatar-hide');
+      }, 2000);
     };
 
-    setInterval(randomAvatar, 100);
+    setInterval(randomAvatar, 10000);
 
   })();
 })(jQuery, d3);

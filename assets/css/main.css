@@ -1286,13 +1286,25 @@ input[type="radio"] + label:before {
       width: 100%; }
   .image.avatar {
     border-radius: 100%;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
     .image.avatar img {
+      position: absolute;
+      top: 0;
       border-radius: 100%;
       display: block;
-      width: 100%; }
+      width: 100%;
+      transition: 1000ms all ease-in;
+      transform: rotate3d(0, 1, 0, 0deg);
+      opacity: 1; }
+      .image.avatar img.main-avatar {
+        opacity: 1; }
       .image.avatar img.avatar-hide {
-        display: none; }
+        opacity: 0;
+        transform: rotate3d(0, 1, 0, 180deg); }
+      .image.avatar img.avatar-hide.main-avatar {
+        opacity: 0;
+        transform: rotate3d(0, 1, 0, 180deg); }
   .image.main {
     display: block;
     height: 20em;
@@ -1677,7 +1689,8 @@ input[type="button"],
     #header > header .avatar {
       display: block;
       margin: 0 auto 2.25em auto;
-      width: 8em; }
+      width: 8em;
+      height: 8em; }
     #header > header h1 {
       font-size: 1.75em;
       margin: 0; }
