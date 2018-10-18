@@ -1294,17 +1294,14 @@ input[type="radio"] + label:before {
       border-radius: 100%;
       display: block;
       width: 100%;
-      transition: 1000ms all ease-in;
-      transform: rotate3d(0, 1, 0, 0deg);
+      transition: 1s all ease-in;
       opacity: 1; }
       .image.avatar img.main-avatar {
         opacity: 1; }
       .image.avatar img.avatar-hide {
-        opacity: 0;
-        transform: rotate3d(0, 1, 0, 180deg); }
+        opacity: 0; }
       .image.avatar img.avatar-hide.main-avatar {
-        opacity: 0;
-        transform: rotate3d(0, 1, 0, 180deg); }
+        opacity: 0; }
   .image.main {
     display: block;
     height: 20em;
