@@ -716,6 +716,10 @@
 				border-radius: 100%;
 				display: block;
 				width: 100%;
+
+        &.avatar-hide {
+          display: none;
+        }
 			}
 		}
 

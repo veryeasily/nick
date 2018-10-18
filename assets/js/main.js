@@ -214,4 +214,38 @@
     updateFn();
     setInterval(updateFn, 10000);
   })();
+
+  ;(function() {
+    var pictures = [
+      '1.jpg',
+      '2.jpg',
+      '3.jpg',
+      '4.jpg',
+      '5.jpg',
+      '6.jpg',
+      '7.jpg'
+    ];
+
+    $avatar = $('.image.avatar');
+
+    var cacheBuster = Math.floor(Math.random()*1000000);
+
+    pictures.forEach(function(file, i) {
+      var url = 'images/cats/'+file+'?version='+cacheBuster;
+
+      $avatar.append($('<img src="'+url+'" class="avatar-hide"></img>'));
+    });
+
+    var randomAvatar = function() {
+      var rand = Math.floor(Math.random() * pictures.length - 1);
+      var current = $('.image.avatar img:not(.avatar-hide)')[0];
+      $avatar.children().addClass('avatar-hide');
+      $avatar.children().filter(function() {
+        return this != current;
+      }).eq(rand).removeClass('avatar-hide');
+    };
+
+    setInterval(randomAvatar, 100);
+
+  })();
 })(jQuery, d3);
