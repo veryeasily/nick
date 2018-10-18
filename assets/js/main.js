@@ -197,17 +197,21 @@
     //The line SVG Path we draw
     var lineGraph = svgContainer.append("path")
                                 .attr("d", lineFunction(lineData))
-                                .attr("stroke", "blue")
+                                .attr("stroke", "rgb(74, 202, 168)")
                                 .attr("stroke-width", 2)
                                 .attr("fill", "none");
 
-    setInterval(function() {
+    var updateFn = function() {
       var newData = lineData.map(function(d) {
         d.y = randHeight();
         return d;
       });
 
-      lineGraph.transition(t).attr('d', lineFunction(newData));
-    }, 10000);
+      lineGraph.transition().duration(5000)
+                            .attr('d', lineFunction(newData));
+    }
+
+    updateFn();
+    setInterval(updateFn, 10000);
   })();
 })(jQuery, d3);
